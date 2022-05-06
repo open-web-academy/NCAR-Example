@@ -1,4 +1,4 @@
-ID=dev-1651798836338-12472374734098
+ID=dev-1651852369664-24990959096739
 echo $ID
 
 Inicializar contrato:
@@ -19,4 +19,4 @@ Guardar producto
 
 Eliminar producto
 
-    near call $ID delete_products '{"address":"0x1"}' --accountId yairnava.testnet
+    near call $ID delete_products '{"address":"0x3"}' --accountId yairnava.testnet

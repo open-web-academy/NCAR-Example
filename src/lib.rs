@@ -11,6 +11,7 @@ use near_sdk::{
 #[derive(Serialize, Deserialize, BorshDeserialize, BorshSerialize, Clone)]
 #[serde(crate = "near_sdk::serde")]
 pub struct Item {
+    address: String,
     name: String,
     price: u64,
     stock: u64,
@@ -52,6 +53,7 @@ impl Contract {
         //assert_eq!(self.access.has_role(&ROLE_SET_PRODUCT.to_string(), &env::signer_account_id()), true, "401");
 
         let item = Item {
+            address : address.to_string(),
             name : name.to_string(),
             price : price,
             stock : stock,
@@ -77,12 +79,9 @@ impl Contract {
         // Use env::log to record logs permanently to the blockchain!
         let delete_product = self.records.get(&address);
 
-        env::log(
-            json!(delete_product.clone())
-            .to_string()
-            .as_bytes(),
-        );
         self.records.remove(&address);
+
+        env::log(format!("delete_products '{}' ", address).as_bytes());
    }
 
     // Consultar producto
