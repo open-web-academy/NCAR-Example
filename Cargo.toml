@@ -1,11 +1,12 @@
 [package]
 name = "products"
 version = "0.1.0"
-authors = ["Near Inc <hello@nearprotocol.com>"]
+authors = ["noe <noemk2@gmail.com>"]
 edition = "2021"
 
 [lib]
-crate-type = ["cdylib", "rlib"]
+# crate-type = ["cdylib", "rlib"]
+crate-type = ["cdylib"]
 
 [dependencies]
 near-sdk = "=4.0.0-pre.5"
@@ -14,8 +15,15 @@ near-sys = "0.1.0"
 
 [profile.release]
 codegen-units=1
-opt-level = "s"
-lto = true
+# opt-level : te ayuda a optimizar el nivel codigo 
+
+# opt-level = "0" # sin optimizacion
+# opt-level = "s" # optimiza el tamano del codigo
+# opt-level = "z" # optimiza el tamano del codigo, pero tambien desactiva la vectorizacion del bucle 
+
+opt-level = "z" # optimiza el tamano del codigo, pero tambien desactiva la vectorizacion del bucle 
+
+lto = true 
 debug = false
 panic = "abort"
 
