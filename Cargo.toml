@@ -18,4 +18,6 @@ opt-level = "s"
 lto = true
 debug = false
 panic = "abort"
+
+# dia 1: habilitar de desbordamiento : es util para entrar en panico en el desbordamiento (buenas practicas)
 overflow-checks = true

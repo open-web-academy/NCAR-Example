@@ -1,3 +1,22 @@
+/*  
+    Dia 1 : Interacción con contratos inteligentes.
+  
+    - ☑️ Clona el repositorio de Github, compila y despliega el contrato. 
+    - Crea la estructura de archivos para tu contrato inteligente, es decir, los archivos migrate.rs, internals.rs, enumerations.rs y los que consideres necesarios.
+    - Implementa las buenas prácticas recomendadas por el Protocolo de NEAR para el lenguaje de programación Rust.
+    - Corrige el archivo **Cargo.toml** para optimizar el peso del archivo compilado.
+    - ¡Compila y Despliega tu contrato para realizar las pruebas necesarias y seguir añadiendo las herramientas para escalabilidad y mantenimiento para tu DApp!
+
+*/
+
+
+/*  
+    Estructura de archivos de un contrato:
+
+    lib.rs: estructura de contrato y metodos de inicializacion
+*/
+
+
 use std::collections::HashMap;
 use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::collections::{LazyOption, LookupMap, UnorderedMap, UnorderedSet};
