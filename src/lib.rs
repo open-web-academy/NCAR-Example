@@ -123,4 +123,6 @@ impl Contract {
     pub fn get_products(&self, address: String) -> Option<Item> {
         self.records.get(&address)
     }
+
+    // Cross Contract Callbacks hight level
 }
