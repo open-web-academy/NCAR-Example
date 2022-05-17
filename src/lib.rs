@@ -50,8 +50,6 @@ impl Contract {
     // Guardar producto
     pub fn set_products(&mut self, address:String, name:String, price:u64, stock:u64) -> Item {
         //validate sender has permition of ROLE_SET_PRODUCT
-        //assert_eq!(self.access.has_role(&ROLE_SET_PRODUCT.to_string(), &env::signer_account_id()), true, "401");
-
         let item = Item {
             address : address.to_string(),
             name : name.to_string(),
@@ -62,19 +60,12 @@ impl Contract {
 
         self.records.insert(&address, &item);
 
-        env::log(
-            json!(item.clone())
-            .to_string()
-            .as_bytes(),
-        );
-
         item
     }
 
     // Eliminar producto
     pub fn delete_products(&mut self, address:String) {
         //validate sender has permition of ROLE_DELETE_PRODUCT
-        //assert_eq!(self.access.has_role(&ROLE_DELETE_PRODUCT.to_string(), &env::signer_account_id()), true, "401");
        
         // Use env::log to record logs permanently to the blockchain!
         let delete_product = self.records.get(&address);
