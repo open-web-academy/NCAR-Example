@@ -81,7 +81,11 @@ impl Contract {
 
         self.records.remove(&address);
 
-        env::log(format!("delete_products '{}' ", address).as_bytes());
+        env::log(
+            json!(delete_product.clone())
+            .to_string()
+            .as_bytes(),
+        );
    }
 
     // Consultar producto
